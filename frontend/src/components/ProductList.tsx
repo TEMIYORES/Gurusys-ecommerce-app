@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { ProductType } from "../utilities/Types";
+import { api } from "../services/api";
 
 const ProductList: React.FC = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("/api/products")
+    api
+      .get("/products")
       .then((response) => {
         setProducts(response.data);
       })
