@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 .basic-button {
-  @apply px-4 py-2 flex items-center gap-1 text-sm text-white font-medium rounded-lg bg-orange hover:shadow-xl transition duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed;
+  @apply px-4 py-2 flex justify-center items-center gap-1 text-sm text-white font-medium rounded-lg bg-orange hover:shadow-xl transition duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed;
 }

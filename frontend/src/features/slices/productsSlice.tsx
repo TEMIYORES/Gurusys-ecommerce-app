@@ -1,15 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../services/store";
+import { ProductType } from "../../utilities/Types";
 
-export interface initialStateProps {
-  _id: string | null;
-  name: string | null;
-  description: string | null;
-  image: string | undefined;
-  price: number | null;
-  stock: number | null;
-}
-const initialState: initialStateProps[] = [];
+const initialState: ProductType[] = [];
 
 const ProductsSlice = createSlice({
   name: "Products",

@@ -15,13 +15,13 @@ const Header = () => {
   return (
     <div className="sticky bg-darkGrey top-0 z-10 text-lightGrey">
       <Center>
-        <div className="flex justify-between items-center pt-5 px-0">
+        <div className="flex justify-between items-center py-5 px-0">
           <Link className="text-white outline-none text-xl" to={"/"}>
             Gurumart
           </Link>
           <div
             className={classNames(
-              `block fixed gap-4 top-0 bottom-0 right-0 p-5 z-10 ease-linear duration-300 bg-darkGrey md:flex md:static md:p-0 ${
+              `block fixed gap-4 top-0 bottom-0 right-0 p-5 z-10 ease-linear duration-300 bg-darkGrey md:flex md:static md:p-0 md:items-center ${
                 sidebarnavactive ? "left-0" : "left-full"
               }`
             )}
@@ -37,7 +37,7 @@ const Header = () => {
                 <CloseIcon />
               </div>
             </div>
-            <div className={`flex flex-col mt-4 gap-5 items-start md:flex-row`}>
+            <div className={`flex flex-col gap-5 items-start md:flex-row`}>
               <Link
                 to={"/"}
                 className={`md:p-0 hover:text-orange ${
