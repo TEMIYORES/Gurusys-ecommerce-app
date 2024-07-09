@@ -1,10 +1,13 @@
 import React from "react";
 import ProductList from "../components/ProductList";
+import Header from "../components/Header";
+import HeroSection from "../components/HeroSection";
 
 const Home: React.FC = () => {
   return (
     <div>
-      <h1>Welcome to the E-commerce Store</h1>
+      <Header/>
+      <HeroSection/>
       <ProductList />
     </div>
   );

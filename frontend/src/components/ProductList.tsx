@@ -1,32 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { ProductType } from "../utilities/Types";
-import { api } from "../services/api";
+import React from "react";
+import { useSelector } from "react-redux";
+import { getProducts } from "../features/slices/productsSlice";
+import Center from "./Center";
 
 const ProductList: React.FC = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    api
-      .get("/products")
-      .then((response) => {
-        setProducts(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-      });
-  }, []);
+  const products = useSelector(getProducts);
 
   return (
-    <div>
-      <h1>Products</h1>
+    <Center>
+      <h1 className="font-semibold text-2xl mt-8 mb-5">All Products</h1>
       <ul>
-        {products.map((product: ProductType) => (
+        {products.map((product) => (
           <li key={product._id}>
             {product.name} - ${product.price}
           </li>
         ))}
       </ul>
-    </div>
+    </Center>
   );
 };
 
