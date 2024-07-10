@@ -8,7 +8,6 @@ import { ProductType } from "../utilities/Types.ts";
 
 const HeroSection = () => {
   const product = useSelector(getProducts)[0];
-  const { _id, name, description, image, price, stock } = product;
   const dispatch = useDispatch();
 
   const handleAddtoCart = (product: ProductType) => {
@@ -30,16 +29,7 @@ const HeroSection = () => {
             <div className="flex gap-3">
               <button
                 className="basic-button"
-                onClick={() =>
-                  handleAddtoCart({
-                    _id,
-                    name,
-                    image,
-                    price,
-                    stock,
-                    description,
-                  })
-                }
+                onClick={() => handleAddtoCart(product)}
               >
                 <CartIcon />
                 Add to cart
