@@ -13,7 +13,7 @@ const ProductList: React.FC = () => {
       <h1 className="font-semibold text-2xl mt-8 mb-5">All Products</h1>
       <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product: ProductType) => (
-          <ProductBox key={product._id} {...product}/>
+          <ProductBox key={product._id} {...product} />
         ))}
       </div>
     </Center>

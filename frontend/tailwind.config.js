@@ -8,7 +8,7 @@ export default {
         lightOrange: "#D1784244",
         darkGrey: "#141921",
         grey: "#252A32",
-        lightGrey: "#AEAEAE",
+        lightGrey: "#eaecef",
       },
     },
   },

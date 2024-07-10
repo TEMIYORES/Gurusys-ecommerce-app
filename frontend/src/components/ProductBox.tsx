@@ -5,16 +5,23 @@ import { ProductType } from "../utilities/Types";
 import CartIcon from "../assets/Icons/CartIcon";
 import { AddToCart } from "../features/slices/cartSlice";
 
-const ProductBox = ({ _id, name, image, price }: ProductType) => {
+const ProductBox = ({
+  _id,
+  name,
+  image,
+  price,
+  stock,
+  description,
+}: ProductType) => {
   const dispatch = useDispatch();
 
-  const handleAddtoCart = ({ _id, name }: { _id: string; name: string }) => {
-    dispatch(AddToCart(_id));
-    toast.success(`${name} added to cart`);
+  const handleAddtoCart = (product: ProductType) => {
+    dispatch(AddToCart(product));
+    toast.success(`${product.name} added to cart`);
   };
 
   return (
-    <div className="relative bg-[#eaecef] p-3 rounded-md">
+    <div className="relative bg-lightGrey p-3 rounded-md">
       <Link className="flex justify-center" to={`/products/${_id}`}>
         <img src={image} alt="product Image" />
       </Link>
@@ -29,7 +36,9 @@ const ProductBox = ({ _id, name, image, price }: ProductType) => {
         </div>
         <button
           className="basic-button"
-          onClick={() => handleAddtoCart({ _id, name })}
+          onClick={() =>
+            handleAddtoCart({ _id, name, image, price, stock, description })
+          }
         >
           <CartIcon /> Add To Cart
         </button>

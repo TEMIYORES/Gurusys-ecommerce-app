@@ -2,11 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../services/store";
 
 const cartItemsJSON = localStorage.getItem("cartItems");
-let initialState: string[] = [];
+let initialState: Record<string, any>[] = [];
 
 if (cartItemsJSON) {
   try {
     initialState = JSON.parse(cartItemsJSON);
+    console.log({ initialState });
     // Ensure that initialState is an array
     if (!Array.isArray(initialState)) {
       initialState = [];
@@ -25,11 +26,12 @@ const cartSlice = createSlice({
       localStorage.setItem("cartItems", JSON.stringify(state));
     },
     RemoveFromCart: (state, action) => {
-      const position = state.indexOf(action.payload);
-      if (position !== -1) {
-        const result = state.filter((_, index) => index !== position);
-        localStorage.setItem("cartItems", JSON.stringify(result));
-        return result;
+      const indexToRemove = state.findIndex(
+        (product) => product._id === action.payload._id
+      );
+      console.log(JSON.stringify(indexToRemove));
+      if (indexToRemove > -1) {
+        state.splice(indexToRemove, 1);
       }
     },
     clearCart: () => {
