@@ -13,6 +13,7 @@ import { store } from "./services/store.tsx";
 import { Provider } from "react-redux";
 import Cart from "./pages/Cart.tsx";
 import { Toaster } from "sonner";
+import Dashboard from "./pages/Dashboard.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       {/*start- Public routes */}
       <Route index element={<Home />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/dashboard" element={<Dashboard />} />
     </Route>
   )
 );

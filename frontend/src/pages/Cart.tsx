@@ -71,6 +71,7 @@ const Cart = () => {
     try {
       // Sending data to server
       const response = await api.post("/orders", formData);
+      console.log({ response });
       if (response.data.paymentUrl) {
         window.location.href = response.data.paymentUrl;
       }

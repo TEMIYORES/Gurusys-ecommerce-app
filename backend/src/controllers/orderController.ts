@@ -95,9 +95,15 @@ export const verifyOrder = async (req: Request, res: Response) => {
 
       fulfilledOrder.status = "Paid";
       fulfilledOrder.save();
-      return res.status(200).json({ fulfilledOrder });
+      return res
+        .status(200)
+        .json({ message: "Payment verified. Thanks for your purchase!" });
     } else {
-      return res.status(402).json({ message: "Payment Required." });
+      return res
+        .status(402)
+        .json({
+          message: "Payment failed. Please proceed to checkout for payment.",
+        });
     }
   } catch (error) {
     console.error("Error fetching data:", error);

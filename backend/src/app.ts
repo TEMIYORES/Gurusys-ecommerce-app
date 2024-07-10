@@ -5,7 +5,7 @@ import orderRoutes from "./routes/orderRoutes";
 import connectDB from "./config/connectDB";
 import cors from "cors";
 import dotenv from "dotenv";
-
+import { v2 as cloudinary } from "cloudinary";
 const app = express();
 
 // Config ENV
@@ -18,6 +18,13 @@ connectDB();
 app.use(cors());
 
 app.use(express.json());
+
+// connect to cloudinary for image upload
+cloudinary.config({
+  cloud_name: "dlxovrmtr",
+  api_key: process.env.CLOUDINARY_SECRET_API_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET_KEY,
+});
 
 app.use("/api", productRoutes);
 app.use("/api", orderRoutes);

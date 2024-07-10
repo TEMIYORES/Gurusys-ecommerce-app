@@ -11,7 +11,6 @@ import classNames from "classnames";
 const Header = () => {
   const cartLength: number = useSelector(getCartLength);
   const [sidebarnavactive, setsidebarnavactive] = useState(false);
-  console.log({ sidebarnavactive });
   return (
     <div className="sticky bg-darkGrey top-0 z-10 text-lightGrey">
       <Center>
@@ -61,6 +60,9 @@ const Header = () => {
             >
               <BarsIcon />
             </div>
+            <Link to={"/dashboard"}>
+              <button className="basic-button">Dashboard</button>
+            </Link>
           </div>
         </div>
       </Center>
