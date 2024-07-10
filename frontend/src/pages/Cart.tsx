@@ -31,8 +31,28 @@ const Cart = () => {
   }
   let transactionFee = 0;
   transactionFee = total * 0.015 + 100 > 2000 ? 2000 : total * 0.015 + 100;
+
+  const seen = new Set();
+  const uniqueCartProducts = cartItems.filter((product) => {
+    if (seen.has(product._id)) {
+      return false;
+    } else {
+      seen.add(product._id);
+      return true;
+    }
+  });
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const newCartItems = uniqueCartProducts.map((product) => {
+      const quantity = cartItems.filter((p) => p._id === product._id).length;
+      return {
+        _id: product._id,
+        name: product.name,
+        image: product.image,
+        price: product.price,
+        quantity,
+      };
+    });
     const formData = {
       origin: window.location.origin,
       customerInfo: {
@@ -44,7 +64,8 @@ const Cart = () => {
         streetAddress,
         country,
       },
-      products: [...cartItems],
+      products: [...newCartItems],
+      total,
       transactionFee,
     };
     try {
@@ -65,15 +86,6 @@ const Cart = () => {
     dispatch(RemoveFromCart(product));
   };
 
-  const seen = new Set();
-  const uniqueCartProducts = cartItems.filter((product) => {
-    if (seen.has(product._id)) {
-      return false;
-    } else {
-      seen.add(product._id);
-      return true;
-    }
-  });
   return (
     <div>
       <Header />
