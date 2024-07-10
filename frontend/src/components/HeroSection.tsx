@@ -4,15 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 import { getProducts } from "../features/slices/productsSlice";
 import { AddToCart } from "../features/slices/cartSlice.tsx";
+import { ProductType } from "../utilities/Types.ts";
 
 const HeroSection = () => {
   const product = useSelector(getProducts)[0];
-
+  const { _id, name, description, image, price, stock } = product;
   const dispatch = useDispatch();
 
-  const handleAddtoCart = (id: string | null, name: string | null) => {
-    dispatch(AddToCart(id));
-    toast.success(`${name} added to cart`);
+  const handleAddtoCart = (product: ProductType) => {
+    dispatch(AddToCart(product));
+    toast.success(`${product.name} added to cart`);
   };
 
   return (
@@ -27,10 +28,18 @@ const HeroSection = () => {
               {product?.description}
             </div>
             <div className="flex gap-3">
-              <button className="basic-button">Read more</button>
               <button
                 className="basic-button"
-                onClick={() => handleAddtoCart(product._id, product.name)}
+                onClick={() =>
+                  handleAddtoCart({
+                    _id,
+                    name,
+                    image,
+                    price,
+                    stock,
+                    description,
+                  })
+                }
               >
                 <CartIcon />
                 Add to cart
