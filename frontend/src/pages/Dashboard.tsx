@@ -15,8 +15,10 @@ const Dashboard: React.FC = () => {
   };
   return (
     <Center>
-      <h1 className="text-center text-3xl mt-5">Admin Dashboard</h1>
-      <div className="flex-grow flex flex-col sm:flex-row w-full h-full bg-headerbg mt-3 p-5 lg:p-10 rounded-lg items-stretch bg-lightGrey">
+      <h1 className="text-center text-xl md:text-3xl mt-5 font-semibold">
+        Admin Dashboard
+      </h1>
+      <div className="flex-grow flex flex-col md:flex-row w-full h-full bg-headerbg mt-3 p-2 md:p-5 lg:p-10 rounded-lg items-stretch bg-lightGrey">
         <div className="flex-grow flex-1 flex-col text-darkGrey gap-y-3 font-semibold border-r border-darkGrey p-3 text-sm hidden md:flex">
           <div
             className={`cursor-pointer py-1 px-4 rounded-md transition-all ease-linear hover:text-textcolor ${
@@ -59,14 +61,14 @@ const Dashboard: React.FC = () => {
           </svg>
           <div
             ref={dropdownRef}
-            className={`hidden absolute z-10 p-2 min-w-40 bg-bg text-textcolor rounded-md right-0 top-12 transition-all ease-linear origin-bottom md:hidden`}
+            className={`hidden absolute z-10 p-2 min-w-40 bg-darkGrey text-white rounded-md right-0 top-10 transition-all ease-linear origin-bottom md:hidden`}
           >
             <div className="overflow-y-auto">
               <div
-                className={`flex items-center justify-between gap-1 text-sm p-2 bg-headerbg rounded-md mb-1  ${
-                  currentTab == "Products"
-                    ? "bg-textcolor text-darkGrey pointer-events-none"
-                    : ""
+                className={`flex items-center justify-between gap-1 text-sm p-2 bg-headerbg rounded-md mb-1 ${
+                  currentTab.includes("products")
+                    ? "bg-white text-darkGrey pointer-events-none"
+                    : "cursor-pointer"
                 }`}
                 onClick={() => setCurrentTab("products")}
               >
@@ -75,8 +77,8 @@ const Dashboard: React.FC = () => {
               <div
                 className={`flex items-center justify-between gap-1 text-sm p-2 bg-headerbg rounded-md mb-1  ${
                   currentTab == "orders"
-                    ? "bg-textcolor text-darkGrey pointer-events-none"
-                    : ""
+                    ? "bg-white text-darkGrey pointer-events-none"
+                    : "cursor-pointer"
                 }`}
                 onClick={() => setCurrentTab("orders")}
               >
@@ -85,7 +87,7 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="relative flex-grow flex items-stretch w-full py-3 px-5">
+        <div className="relative flex-grow flex items-stretch w-full py-3 md:px-5">
           {currentTab === "products" ? (
             <DashboardProducts
               setProduct={setProduct}

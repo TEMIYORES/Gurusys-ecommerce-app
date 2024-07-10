@@ -22,9 +22,7 @@ const ProductBox = ({
 
   return (
     <div className="relative bg-lightGrey p-3 rounded-md">
-      <Link className="flex justify-center" to={`/products/${_id}`}>
-        <img src={image} alt="product Image" />
-      </Link>
+      <img src={image} alt="product Image" />
       <div className="font-semibold text-sm py-2 sm:text-base">{name}</div>
       <div className="flex flex-col justify-between gap-2">
         <div className="font-medium md:text-lg">

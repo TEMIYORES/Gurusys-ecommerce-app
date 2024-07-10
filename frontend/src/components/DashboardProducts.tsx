@@ -42,14 +42,14 @@ const DashboardProducts: React.FC<PropType> = ({
     <div className="flex-grow">
       <div className="w-full bg-lightOrange rounded-md">
         <div className="w-full p-2">
-          <div className="w-full grid grid-cols-9 gap-2 items-center text-xs font-bold text-headercolor">
+          <div className="w-full grid grid-cols-5 lg:grid-cols-9 gap-2 items-center text-xs font-bold">
             <div className="">
               <p>S/N</p>
             </div>
-            <p>Image</p>
-            <p>Id</p>
+            <p className="hidden lg:block">Image</p>
+            <p className="hidden lg:block">Id</p>
             <p>Name</p>
-            <p className="col-span-2">Description</p>
+            <p className="col-span-2 hidden lg:block">Description</p>
             <p>Price</p>
             <p>Stock</p>
             <p></p>
@@ -66,23 +66,25 @@ const DashboardProducts: React.FC<PropType> = ({
             return (
               <div key={product._id} className="w-full rounded-md">
                 <div className="w-full p-2">
-                  <div className="w-full grid grid-cols-9 gap-2 items-center text-xs font-bold text-headercolor">
+                  <div className="w-full grid grid-cols-5 lg:grid-cols-9 gap-2 items-center text-xs font-bold text-headercolor">
                     <div className="flex gap-2 text-sm font-normal">
                       <p>{index + 1}.</p>
                     </div>
                     <img
                       src={product.image}
-                      className="w-12"
+                      className="w-12 hidden lg:block"
                       alt="product image"
                     />
-                    <p>{product._id.substring(0, 6) + "..."}</p>
+                    <p className="hidden lg:block">
+                      {product._id.substring(0, 6) + "..."}
+                    </p>
                     <p>{product.name}</p>
-                    <p className="col-span-2 line-clamp-2">
-                      {product.description}
+                    <p className="col-span-2 line-clamp-2 hidden lg:block">
+                      {product.description.substring(0, 30) + "..."}
                     </p>
                     <p>{product.price}</p>
                     <p>{product.stock}</p>
-                    <div className="flex items-center justify-end gap-5">
+                    <div className="flex items-center justify-end gap-2">
                       <button
                         onClick={() => {
                           setProduct(product);

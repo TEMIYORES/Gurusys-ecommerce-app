@@ -27,5 +27,5 @@ body {
   @apply w-full mt-2 px-3 py-2 text-darkGrey bg-transparent outline-none border border-darkGrey focus:border-orange shadow-sm rounded-lg transition duration-300 disabled:text-lightGrey;
 }
 .basic-button {
-  @apply px-4 py-2 flex justify-center items-center gap-1 text-sm text-white font-medium rounded-lg bg-orange hover:shadow-xl transition duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed;
+  @apply px-2 sm:px-4 py-2 flex justify-center items-center gap-1 text-sm text-white font-medium rounded-lg bg-orange hover:shadow-xl transition duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed;
 }

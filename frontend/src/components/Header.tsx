@@ -51,9 +51,6 @@ const Header = () => {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <Link to={"/search"}>
-              <SearchIcon className="w-6 text-white" />
-            </Link>
             <div
               className="block md:hidden"
               onClick={() => setsidebarnavactive(!sidebarnavactive)}

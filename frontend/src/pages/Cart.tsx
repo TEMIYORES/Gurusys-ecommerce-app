@@ -92,7 +92,7 @@ const Cart = () => {
       <Header />
       <Center>
         <div className="grid grid-cols-1 gap-10 items-start mt-10 md:grid-cols-3">
-          <div className="bg-lightGrey rounded-lg p-3 sm:p-10 col-span-2">
+          <div className="bg-lightGrey rounded-lg p-3 sm:p-10 col-span-1 md:col-span-2">
             {cartItems.length > 0 && (
               <>
                 <h2 className="font-semibold text-3xl mb-3">Cart</h2>
@@ -150,7 +150,7 @@ const Cart = () => {
                   <div className="col-span-2">Transaction Fee</div>
                   <td>{<PriceFormat price={transactionFee} />}</td>
                 </div>
-                <tr className="grid grid-cols-3 uppercase text-darkGrey font-semibold text-left justify-between items-baseline text-2xl">
+                <tr className="grid grid-cols-3 uppercase text-darkGrey font-semibold text-left justify-between items-baseline text-base md:text:2xl">
                   <div className="col-span-2">Total</div>
                   <td>
                     <div className="font-medium md:text-2xl">
@@ -171,7 +171,7 @@ const Cart = () => {
             )}
           </div>
           {cartItems.length > 0 && (
-            <div className="bg-lightGrey rounded-lg  py-5 px-3 sm:p-5 col-span-1">
+            <div className="w-full bg-lightGrey rounded-lg py-5 px-3 sm:p-5 col-span-1">
               {/* <Heading2>Account details</Heading2> */}
               <div className="font-semibold text-2xl">Order Information</div>
               <form onSubmit={handleSubmit}>
