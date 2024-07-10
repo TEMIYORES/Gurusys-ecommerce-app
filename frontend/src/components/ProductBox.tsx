@@ -21,7 +21,11 @@ const ProductBox = ({
 
   return (
     <div className="relative bg-lightGrey p-3 rounded-md">
-      <img src={image} alt="product Image" />
+      <img
+        className="w-[100%] h-[230px] object-contain"
+        src={image}
+        alt="product Image"
+      />
       <div className="font-semibold text-sm py-2 sm:text-base">{name}</div>
       <div className="flex flex-col justify-between gap-2">
         <div className="font-medium md:text-lg">
