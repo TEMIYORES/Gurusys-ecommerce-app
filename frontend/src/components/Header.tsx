@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import BarsIcon from "../assets/Icons/BarsIcon";
 import { useState } from "react";
 import CloseIcon from "../assets/Icons/CloseIcon";
-import SearchIcon from "../assets/Icons/SearchIcon";
 import { getCartLength } from "../features/slices/cartSlice.tsx";
 import classNames from "classnames";
 

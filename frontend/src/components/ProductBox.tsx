@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toast } from "sonner";
 import { ProductType } from "../utilities/Types";
